@@ -1,0 +1,89 @@
+<form
+  class="form-horizontal"
+  autocomplete="off"
+  #editPlayerModal="ngForm"
+  (ngSubmit)="save()"
+>
+  <abp-modal-header
+    [title]="'EditPlayer' | localize"
+    (onCloseClick)="bsModalRef.hide()"
+  ></abp-modal-header>
+  <div class="modal-body">
+    <tabset>
+      <tab [heading]="'PlayerDetails' | localize" class="pt-3 px-2">
+        <div class="form-group row required">
+          <label class="col-md-3 col-form-label" for="name">
+            {{ "Name" | localize }}
+          </label>
+          <div class="col-md-9">
+            <input
+              type="text"
+              class="form-control"
+              name="name"
+              id="name"
+              required
+              maxlength="32"
+              [(ngModel)]="player.name"
+              #nameModel="ngModel"
+              #nameEl
+            />
+            <abp-validation-summary
+              [control]="nameModel"
+              [controlEl]="nameEl"
+            ></abp-validation-summary>
+          </div>
+        </div>
+        <div class="form-group row required">
+          <label class="col-md-3 col-form-label" for="surname">
+            {{ "Surname" | localize }}
+          </label>
+          <div class="col-md-9">
+            <input
+              type="text"
+              class="form-control"
+              name="surname"
+              id="surname"
+              required
+              maxlength="32"
+              [(ngModel)]="player.surname"
+              #surnameModel="ngModel"
+              #surnameEl
+            />
+            <abp-validation-summary
+              [control]="surnameModel"
+              [controlEl]="surnameEl"
+            ></abp-validation-summary>
+          </div>
+        </div>
+        <div class="form-group row required">
+          <label class="col-md-3 col-form-label" for="email">
+            {{ "Email" | localize }}
+          </label>
+          <div class="col-md-9">
+            <input
+              type="email"
+              class="form-control"
+              name="email"
+              id="email"
+              required
+              maxlength="256"
+              pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{1,})+$"
+              [(ngModel)]="player.email"
+              #emailModel="ngModel"
+              #emailEl
+            />
+            <abp-validation-summary
+              [control]="emailModel"
+              [controlEl]="emailEl"
+            ></abp-validation-summary>
+          </div>
+        </div>
+      </tab>
+    </tabset>
+  </div>
+  <abp-modal-footer
+    [cancelDisabled]="saving"
+    [saveDisabled]="!editPlayerModal.form.valid || saving"
+    (onCancelClick)="bsModalRef.hide()"
+  ></abp-modal-footer>
+</form>

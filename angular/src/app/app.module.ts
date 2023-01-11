@@ -38,6 +38,9 @@ import { SidebarComponent } from './layout/sidebar.component';
 import { SidebarLogoComponent } from './layout/sidebar-logo.component';
 import { SidebarUserPanelComponent } from './layout/sidebar-user-panel.component';
 import { SidebarMenuComponent } from './layout/sidebar-menu.component';
+import { PlayerComponent } from './player/player.component';
+import { CreatePlayerDialogComponent } from './player/create-player/create-player-dialog.component';
+import { EditPlayerDialogComponent } from './player/edit-player/edit-player-dialog.component';
 
 @NgModule({
     declarations: [
@@ -67,7 +70,10 @@ import { SidebarMenuComponent } from './layout/sidebar-menu.component';
         SidebarComponent,
         SidebarLogoComponent,
         SidebarUserPanelComponent,
-        SidebarMenuComponent
+        SidebarMenuComponent,
+        PlayerComponent,
+        CreatePlayerDialogComponent,
+        EditPlayerDialogComponent
     ],
     imports: [
         CommonModule,
